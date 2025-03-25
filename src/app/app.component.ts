@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {PicsumComponent} from './shared/picsum.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, PicsumComponent],
   template: `
-    <h1>Welcome to {{title}}!</h1>
+
+    <div class="max-w-screen-sm mx-6 sm:mx:auto">
+      <app-picsum
+      [width]="500"
+      [height]="500"
+      alt="Image 1"
+      />
+      <app-picsum
+      alt="Image Preview 2"
+      border
+      grayscale
+      />
+    </div>
+
 
     <router-outlet />
   `,
