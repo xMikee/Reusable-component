@@ -1,14 +1,28 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {PicsumComponent} from './shared/picsum.component';
 import {StaticMapComponent} from './shared/static-map/static-map.component';
 import {TitleComponent} from './shared/title.component';
 import {ButtonComponent, Variants} from './shared/button/button.component';
 import {ButtonGroupComponent} from './shared/button-group.component';
+import {SidebarPanelComponent} from './shared/sidebar-panel.component';
+import {CardComponent} from './shared/card.component';
 
+type MapLocation = {
+  lat: number;
+  lng: number;
+  zoom: number;
+  maptype: 'terrain' | 'light';
+}
+
+type Buttons = {
+  label: string;
+  url: string;
+  variant: Variants;
+}
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PicsumComponent, StaticMapComponent, TitleComponent, ButtonComponent, ButtonGroupComponent],
+  imports: [RouterOutlet, PicsumComponent, StaticMapComponent, TitleComponent, ButtonComponent, ButtonGroupComponent, SidebarPanelComponent, CardComponent],
   template: `
 
 
@@ -60,6 +74,21 @@ import {ButtonGroupComponent} from './shared/button-group.component';
         }
       </app-button-group>
     </div>
+
+    <hr class="my-3">
+    <div class="flex justify-end">
+      <button (click)="isOpen.set(true)" class="btn"> OPEN PANEL </button>
+    </div>
+
+    <app-sidebar-panel
+      title="My Panel"
+      [(isOpen)]="isOpen"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida at mi eget congue. Vivamus ultricies vehicula diam non volutpat. Cras porta eget eros et ornare. Quisque volutpat porttitor diam, at mattis velit volutpat vitae. Ut tincidunt lorem leo, eu pharetra risus placerat sed. Aliquam mollis quam vel dignissim sollicitudin. Vestibulum ligula nibh, mollis egestas nunc id, volutpat efficitur massa. Donec lectus turpis, pulvinar vitae vestibulum eu, laoreet sit amet augue. Integer eleifend leo vitae gravida luctus. Suspendisse tincidunt massa venenatis, blandit erat tempor, suscipit tellus.
+    </app-sidebar-panel>
+
+    <hr class="py-5">
+    <app-card/>
     <router-outlet />
   `,
 })
@@ -97,16 +126,7 @@ export class AppComponent {
       variant: 'info',
     }
   ]
-}
-type MapLocation = {
-  lat: number;
-  lng: number;
-  zoom: number;
-  maptype: 'terrain' | 'light';
+
+  isOpen = signal(false);
 }
 
-type Buttons = {
-  label: string;
-  url: string;
-  variant: Variants;
-}
