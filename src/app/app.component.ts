@@ -88,7 +88,13 @@ type Buttons = {
     </app-sidebar-panel>
 
     <hr class="py-5">
-    <app-card/>
+    <app-card
+      title="My profile"
+      icon="❤️"
+      (iconClick)="doSomething()"
+    >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida at mi eget congue. Vivamus ultricies vehicula diam non volutpat. Cras porta eget eros et ornare. Quisque volutpat porttitor diam, at mattis velit volutpat vitae. Ut tincidunt lorem leo, eu pharetra risus placerat sed. Aliquam mollis quam vel dignissim sollicitudin. Vestibulum ligula nibh, mollis egestas nunc id, volutpat efficitur massa. Donec lectus turpis, pulvinar vitae vestibulum eu, laoreet sit amet augue. Integer eleifend leo vitae gravida luctus. Suspendisse tincidunt massa venenatis, blandit erat tempor, suscipit tellus.
+    </app-card>
     <router-outlet />
   `,
 })
@@ -101,7 +107,7 @@ export class AppComponent {
   }
 
   doSomething() {
-    window.alert('clicked')
+    console.log('clicked')
   }
 
   buttons : Buttons[] = [
