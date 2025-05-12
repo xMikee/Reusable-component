@@ -1,4 +1,4 @@
-import {Component, EventEmitter, input, model, output, Output, signal} from '@angular/core';
+import {Component, input, model} from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -11,11 +11,8 @@ import {Component, EventEmitter, input, model, output, Output, signal} from '@an
 
 
       @if(Opened()){
-        <div class="border borde-slate-700 text-black bg-white content overflow-hidden duration-300 ease-in-out transition-all"
-        [class.p-3]="Opened()"
-        [class]="Opened() ? 'h-auto' : 'h-0'">
-
-          <ng-content select="app-card-body"></ng-content>
+        <div class="border borde-slate-700 text-black bg-white content overflow-hidden duration-300 ease-in-out transition-all">
+          <ng-content select="[appCardBody]"></ng-content>
         </div>
         <div class="footer border-t border-slate-700 text-black bg-white">
           <ng-content select="app-card-footer"></ng-content>

@@ -11,6 +11,7 @@ import {CardTitleComponent} from './shared/card/card-title.component';
 import {CardBodyComponent} from './shared/card/card-body.component';
 import {CardFooterComponent} from './shared/card/card-footer.component';
 import {CardIconComponent} from './shared/card/card-icon.component';
+import {CardBodyDirective} from './shared/card/card-body.directive';
 
 type MapLocation = {
   lat: number;
@@ -26,7 +27,7 @@ type Buttons = {
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PicsumComponent, StaticMapComponent, TitleComponent, ButtonComponent, ButtonGroupComponent, SidebarPanelComponent, CardComponent, CardTitleComponent, CardBodyComponent, CardFooterComponent, CardIconComponent],
+  imports: [RouterOutlet, PicsumComponent, StaticMapComponent, TitleComponent, ButtonComponent, ButtonGroupComponent, SidebarPanelComponent, CardComponent, CardTitleComponent, CardFooterComponent, CardIconComponent, CardBodyDirective],
   template: `
 
 
@@ -100,7 +101,7 @@ type Buttons = {
         New Profile
         <app-card-icon (iconClick)="doSomething()">⚙</app-card-icon>
       </app-card-title>
-      <app-card-body>Lorem ipsum</app-card-body>
+      <div appCardBody>Lorem ipsum</div>
       <app-card-footer>michelesite.it</app-card-footer>
 
     </app-card>
