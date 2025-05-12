@@ -7,6 +7,10 @@ import {ButtonComponent, Variants} from './shared/button/button.component';
 import {ButtonGroupComponent} from './shared/button-group.component';
 import {SidebarPanelComponent} from './shared/sidebar-panel.component';
 import {CardComponent} from './shared/card.component';
+import {CardTitleComponent} from './shared/card/card-title.component';
+import {CardBodyComponent} from './shared/card/card-body.component';
+import {CardFooterComponent} from './shared/card/card-footer.component';
+import {CardIconComponent} from './shared/card/card-icon.component';
 
 type MapLocation = {
   lat: number;
@@ -22,7 +26,7 @@ type Buttons = {
 }
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PicsumComponent, StaticMapComponent, TitleComponent, ButtonComponent, ButtonGroupComponent, SidebarPanelComponent, CardComponent],
+  imports: [RouterOutlet, PicsumComponent, StaticMapComponent, TitleComponent, ButtonComponent, ButtonGroupComponent, SidebarPanelComponent, CardComponent, CardTitleComponent, CardBodyComponent, CardFooterComponent, CardIconComponent],
   template: `
 
 
@@ -90,11 +94,15 @@ type Buttons = {
     <hr class="py-5">
     <app-card
       title="My Table"
-      icon="⚙️"
-      (iconClick)="doSomething()"
       [(Opened)]="openingState">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida at mi eget congue. Vivamus ultricies vehicula diam non volutpat. Cras porta eget eros et ornare. Quisque volutpat porttitor diam, at mattis velit volutpat vitae. Ut tincidunt lorem leo, eu pharetra risus placerat sed. Aliquam mollis quam vel dignissim sollicitudin. Vestibulum ligula nibh, mollis egestas nunc id, volutpat efficitur massa. Donec lectus turpis, pulvinar vitae vestibulum eu, laoreet sit amet augue. Integer eleifend leo vitae gravida luctus. Suspendisse tincidunt massa venenatis, blandit erat tempor, suscipit tellus.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida at mi eget congue. Vivamus ultricies vehicula diam non volutpat. Cras porta eget eros et ornare. Quisque volutpat porttitor diam, at mattis velit volutpat vitae. Ut tincidunt lorem leo, eu pharetra risus placerat sed. Aliquam mollis quam vel dignissim sollicitudin. Vestibulum ligula nibh, mollis egestas nunc id, volutpat efficitur massa. Donec lectus turpis, pulvinar vitae vestibulum eu, laoreet sit amet augue. Integer eleifend leo vitae gravida luctus. Suspendisse tincidunt massa venenatis, blandit erat tempor, suscipit tellus.
+
+      <app-card-title>
+        New Profile
+        <app-card-icon (iconClick)="doSomething()">⚙</app-card-icon>
+      </app-card-title>
+      <app-card-body>Lorem ipsum</app-card-body>
+      <app-card-footer>michelesite.it</app-card-footer>
+
     </app-card>
 
 
