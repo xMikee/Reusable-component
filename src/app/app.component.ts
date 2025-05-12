@@ -89,12 +89,16 @@ type Buttons = {
 
     <hr class="py-5">
     <app-card
-      title="My profile"
-      icon="❤️"
+      title="My Table"
+      icon="⚙️"
       (iconClick)="doSomething()"
-    >
+      [(Opened)]="openingState">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida at mi eget congue. Vivamus ultricies vehicula diam non volutpat. Cras porta eget eros et ornare. Quisque volutpat porttitor diam, at mattis velit volutpat vitae. Ut tincidunt lorem leo, eu pharetra risus placerat sed. Aliquam mollis quam vel dignissim sollicitudin. Vestibulum ligula nibh, mollis egestas nunc id, volutpat efficitur massa. Donec lectus turpis, pulvinar vitae vestibulum eu, laoreet sit amet augue. Integer eleifend leo vitae gravida luctus. Suspendisse tincidunt massa venenatis, blandit erat tempor, suscipit tellus.
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. In gravida at mi eget congue. Vivamus ultricies vehicula diam non volutpat. Cras porta eget eros et ornare. Quisque volutpat porttitor diam, at mattis velit volutpat vitae. Ut tincidunt lorem leo, eu pharetra risus placerat sed. Aliquam mollis quam vel dignissim sollicitudin. Vestibulum ligula nibh, mollis egestas nunc id, volutpat efficitur massa. Donec lectus turpis, pulvinar vitae vestibulum eu, laoreet sit amet augue. Integer eleifend leo vitae gravida luctus. Suspendisse tincidunt massa venenatis, blandit erat tempor, suscipit tellus.
     </app-card>
+
+
+
     <router-outlet />
   `,
 })
@@ -134,5 +138,6 @@ export class AppComponent {
   ]
 
   isOpen = signal(false);
+  openingState = signal(false);
 }
 
